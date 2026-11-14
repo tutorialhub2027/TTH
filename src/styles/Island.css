@@ -1,0 +1,37 @@
+.Island{
+    display: flex;
+    flex-direction : column;
+    border-radius: 12px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgb(88 28 135 / 12%);
+    padding:40px;
+    padding-top: 6px;
+}
+.Island h2 {
+    align-self:center;
+}
+.Island:hover{
+    transform: translateY(3px);
+}
+.tt-link{
+    text-decoration:none;
+    color:#8800f0;
+}
+.tt-link:hover{
+    text-decoration: underline;
+}
+.Island .title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Island .title svg {
+    color: #8800f0;
+    flex-shrink: 0;
+}
+.all-tt{
+    width:100%;
+    justify-content:self-end;
+}

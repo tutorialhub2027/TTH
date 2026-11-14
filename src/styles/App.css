@@ -1,0 +1,297 @@
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  color: #172033;
+  background: #f8fafc;
+}
+
+/* Header */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #f0ecf5;
+}
+
+.header-inner {
+  box-sizing: border-box;
+  max-width: 1200px;
+  min-height: 56px;
+  margin-inline: auto;
+  padding: 8px 20px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.menu-logo,
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.menu-logo {
+  justify-self: start;
+  gap: 8px;
+}
+
+.menu-logo strong {
+  padding: 6px 9px;
+  border-radius: 8px;
+  background: linear-gradient(110deg, #8800f0, #bd2e7e);
+  color: #fff;
+}
+
+.site-header a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.site-header :where(a:hover, a:focus-visible) {
+  background: #eef2ff;
+}
+
+.site-header .nav-home,
+.site-header .header-cta {
+  padding: 7px 12px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.site-header .nav-home {
+  background: #8800f0;
+  transition: background-color 150ms ease;
+}
+
+.site-header .nav-home:is(:hover, :focus-visible) {
+  background: #9b20f7;
+}
+
+.site-header .header-cta {
+  justify-self: end;
+}
+
+/* Tutorials dropdown */
+.tutorials-main {
+  position: relative;
+}
+
+.tutorials-main > summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  list-style: none;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.tutorials-main > summary::-webkit-details-marker {
+  display: none;
+}
+
+.tutorials-main > summary::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 160ms ease;
+}
+
+.tutorials-main[open] > summary,
+.tutorials-main > summary:is(:hover, :focus-visible) {
+  background: #f5efff;
+  color: #6d28a3;
+}
+
+.tutorials-main[open] > summary::after {
+  transform: translateY(1px) rotate(225deg);
+}
+
+.tutorials-types {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 10;
+  min-width: 200px;
+  margin: 0;
+  padding: 5px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #ede7f2;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgb(31 15 48 / 12%);
+}
+
+.tutorials-main[open] > .tutorials-types {
+  animation: dropdown-in 150ms ease-out;
+}
+
+.site-header .tutorials-types a {
+  display: block;
+  padding: 8px 10px;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.site-header .tutorials-types a:is(:hover, :focus-visible) {
+  background: #f5efff;
+  color: #6d28a3;
+}
+
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: min(720px, 88svh);
+  padding: 80px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #111827;
+
+  background:
+    radial-gradient(ellipse 360px 310px at 3% 3%, #e5c3fa, transparent),
+    radial-gradient(ellipse 440px 270px at 50% 0%, #eee7fa, transparent),
+    radial-gradient(ellipse 490px 390px at 82% 15%, #fff0e3, transparent),
+    radial-gradient(ellipse 340px 180px at 50% 100%, #ffe4dc, transparent),
+    #fff;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgb(70 45 110 / 5%) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(70 45 110 / 5%) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse, black, transparent 85%);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  letter-spacing: -0.05em;
+}
+
+.hero p {
+  max-width: 52ch;
+  margin: 16px 0 28px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.hero-actions a {
+  padding: 12px 20px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Gradient buttons */
+.hero-actions .browse-btn,
+.site-header .header-cta {
+  background: linear-gradient(110deg, #8800f0, #bd2e7e, #a9238b);
+  background-size: 160% 100%;
+  background-position: left center;
+  color: #fff;
+  transition: background-position 220ms ease, box-shadow 180ms ease;
+}
+
+.hero-actions .browse-btn {
+  box-shadow: 0 4px 14px rgb(136 0 240 / 20%);
+}
+
+.hero-actions .browse-btn:is(:hover, :focus-visible),
+.site-header .header-cta:is(:hover, :focus-visible) {
+  background-position: right center;
+  box-shadow: 0 6px 18px rgb(136 0 240 / 24%);
+}
+
+/* Outlined hero button */
+.hero-actions .contribute-btn {
+  background-color: rgb(255 255 255 / 80%);
+  border-color: #ddc8f3;
+  color: #6d28a3;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.hero-actions .contribute-btn:is(:hover, :focus-visible) {
+  background-color: #f8efff;
+  border-color: #cfacf0;
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    grid-template-columns: 1fr auto;
+    row-gap: 8px;
+  }
+
+  .header-inner .navigation {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-actions .browse-btn,
+  .hero-actions .contribute-btn,
+  .site-header .nav-home,
+  .site-header .header-cta,
+  .tutorials-main > summary,
+  .tutorials-main > summary::after,
+  .site-header .tutorials-types a {
+    transition: none;
+  }
+
+  .tutorials-main[open] > .tutorials-types {
+    animation: none;
+  }
+}
+.navigation > a:not(.nav-home, .header-cta),
+.site-header .menu-logo {
+  padding: 7px 10px;
+  border-radius: 6px;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.navigation > a:not(.nav-home, .header-cta):is(:hover, :focus-visible),
+.site-header .menu-logo:is(:hover, :focus-visible) {
+  background-color: #f5efff;
+  color: #6d28a3;
+}

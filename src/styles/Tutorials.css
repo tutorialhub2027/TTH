@@ -1,18 +1,34 @@
 .tutorials {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  padding: 32px 24px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: clamp(48px, 8vw, 88px) 24px;
+  scroll-margin-top: 24px;
 }
 
-@media (max-width: 800px) {
-  #tutorials {
+.tutorials > h2 {
+  margin: 0 0 32px;
+  color: #172033;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  text-align: center;
+}
+
+.tutorials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .tutorials-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 520px) {
-  #tutorials {
+@media (max-width: 600px) {
+  .tutorials-grid {
     grid-template-columns: 1fr;
   }
 }

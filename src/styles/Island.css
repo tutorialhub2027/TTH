@@ -1,37 +1,112 @@
-.Island{
-    display: flex;
-    flex-direction : column;
-    border-radius: 12px;
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 8px 24px rgb(88 28 135 / 12%);
-    padding:40px;
-    padding-top: 6px;
-}
-.Island h2 {
-    align-self:center;
-}
-.Island:hover{
-    transform: translateY(3px);
-}
-.tt-link{
-    text-decoration:none;
-    color:#8800f0;
-}
-.tt-link:hover{
-    text-decoration: underline;
-}
-.Island .title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.Island {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(16px, 2vw, 24px);
+  border: 1px solid #ebe3f4;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 5px 18px rgb(88 28 135 / 6%);
+  scroll-margin-top: 24px;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
-.Island .title svg {
-    color: #8800f0;
-    flex-shrink: 0;
+.Island:focus-within,
+.Island:target {
+  border-color: #d6b4f5;
+  box-shadow: 0 10px 26px rgb(88 28 135 / 12%);
 }
-.all-tt{
-    width:100%;
-    justify-content:self-end;
+
+@media (hover: hover) {
+  .Island:hover {
+    transform: translateY(-3px);
+    border-color: #d6b4f5;
+    box-shadow: 0 10px 26px rgb(88 28 135 / 12%);
+  }
+}
+
+.Island .title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 14px;
+  font-size: 1.125rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.island-icon {
+  display: grid;
+  flex: 0 0 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 10px;
+  background: #f5efff;
+  color: #7300cc;
+}
+
+.island-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.island-links li + li {
+  border-top: 1px solid #f1edf5;
+}
+
+.tt-link,
+.all-tt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  border-radius: 7px;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  text-decoration: none;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.tt-link {
+  justify-content: space-between;
+  color: #39445a;
+  overflow-wrap: anywhere;
+}
+
+.tt-link svg,
+.all-tt svg {
+  flex-shrink: 0;
+  color: #8353ae;
+}
+
+.all-tt {
+  align-self: flex-start;
+  margin-top: 8px;
+  color: #6d28a3;
+  font-weight: 600;
+}
+
+.tt-link:is(:hover, :focus-visible),
+.all-tt:is(:hover, :focus-visible) {
+  background-color: #f5efff;
+  color: #6d28a3;
+}
+
+.tt-link:focus-visible,
+.all-tt:focus-visible {
+  outline: 2px solid #9e4ee7;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Island,
+  .tt-link,
+  .all-tt {
+    transition: none;
+  }
+
+  .Island:hover {
+    transform: none;
+  }
 }

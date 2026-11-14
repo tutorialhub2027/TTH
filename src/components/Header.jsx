@@ -8,7 +8,7 @@ export default function Header() {
         </a>
 
         <nav className="navigation" aria-label="Main navigation">
-          <a className="nav-home" href="#top" aria-current="page">Home</a>
+          <a  href="#top" aria-current="page">Home</a>
 
           <details className="tutorials-main">
             <summary>Tutorials</summary>

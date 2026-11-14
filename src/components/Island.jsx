@@ -1,4 +1,5 @@
 import allTuts from '../data/tops.json'
+import names from '../data/names.json'
 import '../styles/Island.css'
 import { ArrowRight, BookOpen, ChevronRight, Trophy, Dumbbell, Wrench, Shapes } from 'lucide-react'
 
@@ -15,7 +16,7 @@ function TopLinks({ links, name }) {
             <ul className="island-links">
                 {links.slice(0, 4).map((link) => (
                     <li key={link}>
-                        <a href={`/tutorial?title=${encodeURIComponent(link)}`} className="tt-link"><span>{link}</span><ChevronRight size={16} aria-hidden="true" /></a>
+                        <a href={`/tutorial?title=${encodeURIComponent(link)}`} className="tt-link"><span>{names[link]}</span><ChevronRight size={16} aria-hidden="true" /></a>
                     </li>
                 ))}
             </ul>
